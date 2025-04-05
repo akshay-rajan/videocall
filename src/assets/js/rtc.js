@@ -118,21 +118,6 @@ window.addEventListener( 'load', () => {
         }
 
 
-        function sendMsg( msg ) {
-            let data = {
-                room: room,
-                msg: msg,
-                sender: `${username} (${randomNumber})`
-            };
-
-            //emit chat message
-            socket.emit( 'chat', data );
-
-            //add localchat
-            h.addChat( data, 'local' );
-        }
-
-
 
         function init( createOffer, partnerName ) {
             pc[partnerName] = new RTCPeerConnection( h.getIceServer() );
@@ -401,6 +386,19 @@ window.addEventListener( 'load', () => {
             }
 
             broadcastNewTracks( myStream, 'audio' );
+        } );
+
+        //When user clicks the 'Share screen' button
+        document.getElementById( 'share-screen' ).addEventListener( 'click', ( e ) => {
+            e.preventDefault();
+
+            if ( screen && screen.getVideoTracks().length && screen.getVideoTracks()[0].readyState != 'ended' ) {
+                stopSharingScreen();
+            }
+
+            else {
+                shareScreen();
+            }
         } );
 
     }

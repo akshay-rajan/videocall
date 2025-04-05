@@ -2,7 +2,7 @@ import helpers from './helpers.js';
 
 window.addEventListener( 'load', () => {
 
-    //When the video frame is clicked. This will enable picture-in-picture
+    // When the video frame is clicked. This will enable picture-in-picture
     document.getElementById( 'local' ).addEventListener( 'click', () => {
         if ( !document.pictureInPictureElement ) {
             document.getElementById( 'local' ).requestPictureInPicture()
@@ -22,7 +22,7 @@ window.addEventListener( 'load', () => {
     } );
 
 
-    //When the 'Create room" is button is clicked
+    // When the 'Create room" is button is clicked
     document.getElementById( 'create-room' ).addEventListener( 'click', ( e ) => {
         e.preventDefault();
 
@@ -43,7 +43,7 @@ window.addEventListener( 'load', () => {
             // document.querySelector( '#room-created' ).innerHTML = `Room successfully created. Click <a href='${ roomLink }'>here</a> to enter room. 
             //     Share the room link with your partners.`;
 
-            //empty the values
+            // Empty the values
             document.querySelector( '#room-name' ).value = '';
             document.querySelector( '#your-name' ).value = '';
 
@@ -57,20 +57,20 @@ window.addEventListener( 'load', () => {
     } );
 
 
-    //When the 'Enter room' button is clicked.
+    // When the 'Enter room' button is clicked.
     document.getElementById( 'enter-room' ).addEventListener( 'click', ( e ) => {
         e.preventDefault();
 
         let name = document.querySelector( '#username' ).value;
 
         if ( name ) {
-            //remove error message, if any
+            // Remove error message, if any
             document.querySelector('#err-msg-username').innerText = "";
 
-            //save the user's name in sessionStorage
+            // Save the user's name in sessionStorage
             sessionStorage.setItem( 'username', name );
 
-            //reload room
+            // Reload room
             location.reload();
         }
 

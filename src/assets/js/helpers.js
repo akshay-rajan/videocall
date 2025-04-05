@@ -193,14 +193,14 @@ export default {
 
         if ( share ) {
             shareIconElem.setAttribute( 'title', 'Stop sharing screen' );
-            shareIconElem.children[0].classList.add( 'text-primary' );
-            shareIconElem.children[0].classList.remove( 'text-white' );
+            shareIconElem.children[0].classList.add( 'text-danger' );
+            shareIconElem.children[0].classList.remove( 'text-primary' );
         }
 
         else {
             shareIconElem.setAttribute( 'title', 'Share screen' );
-            shareIconElem.children[0].classList.add( 'text-white' );
-            shareIconElem.children[0].classList.remove( 'text-primary' );
+            shareIconElem.children[0].classList.add( 'text-primary' );
+            shareIconElem.children[0].classList.remove( 'text-danger' );
         }
     },
 
