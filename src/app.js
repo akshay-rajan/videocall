@@ -188,10 +188,10 @@ app.get('/api/rooms/:roomId/messages', (req, res) => {
     res.json(roomMessages);
 });
 
-// Keep the existing route for the original frontend
-// app.get('/', (req, res) => {
-//     res.sendFile(__dirname + '/index.html');
-// });
+// Original frontend
+app.get('/', (req, res) => {
+    res.sendFile(__dirname + '/index.html');
+});
 
 // Keep the existing WebSocket setup
 io.of('/stream').on('connection', stream);
